@@ -1,0 +1,127 @@
+* {
+    font-family: Courier, monospace;
+    color: black;
+}
+
+/* BANNER */
+#banner-container {
+    width: 100%;
+    position: relative;
+    height: 40%;
+    background-image: linear-gradient(to right, #ffc300, #ff0000);
+}
+
+#title-container {
+    width: 50%;
+    padding: 30px;
+}
+
+#frontend-dev-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Comment this to show html margin */
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.button-style {
+    border-radius: 10px;
+    width: 170px;
+    height: 55px;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    margin: 10px;
+    border: 2px solid #900c3f;
+}
+
+.button-style:hover {
+    cursor: pointer;
+    background-color: #900c3f !important;
+    background-color: blue;
+    color: white;
+}
+
+/* CONTENT */
+
+/* CARDS */
+#content-container {
+    height: 60%;
+    padding: 5rem;
+}
+
+#cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+    height: 80%;
+}
+
+.card {
+    background-color: #eeeeee;
+    width: 200px;
+    height: 150px;
+    padding: 2rem;
+    margin: 1rem;
+    outline: 1px solid #d3d3d3;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-link {
+    color: blue;
+}
+
+ul,
+ol {
+    padding: 0;
+}
+
+/* INPUTS */
+#form-container {
+    display: flex;
+    justify-content: start;
+    margin-top: 40px;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    .form-item {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        gap: 0.5rem;
+        margin: 1rem;
+
+        input {
+            height: 25px;
+        }
+    }
+}
+
+/* MEDIA QUERY */
+@media (max-width: 915px) {
+    #frontend-dev-image {
+        opacity: 0;
+    }
+}
