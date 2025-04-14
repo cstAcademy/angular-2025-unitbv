@@ -1,0 +1,14 @@
+<a [routerLink]="''">Go back to dashboard</a>
+
+@if (bestVotedGame) {
+<p class="best-game-award-container">Best game: {{ bestVotedGame.title }}</p>
+}
+
+<div>
+  @for(game of arrayOfGames; track game){
+  <app-game-card
+    [game]="game"
+    (bestGame)="bestVotedGame = $event"
+  ></app-game-card>
+  }
+</div>
