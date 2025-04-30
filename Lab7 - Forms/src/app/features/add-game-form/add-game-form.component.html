@@ -1,0 +1,64 @@
+<form nz-form [formGroup]="gameForm">
+  <nz-form-item>
+    <nz-form-label nzFor="new-game-name" nzRequired>Game Name</nz-form-label>
+    <nz-form-control nzErrorTip="The Game Name is required" nzHasFeedback>
+      <input
+        nz-input
+        id="new-game-name"
+        placeholder="Enter the game name"
+        formControlName="gameName"
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzFor="new-game-image" nzRequired>Game Image</nz-form-label>
+    <nz-form-control [nzErrorTip]="gameImageError" nzHasFeedback>
+      <input
+        nz-input
+        id="new-game-image"
+        placeholder="Enter the game image URL"
+        formControlName="gameImage"
+      />
+      <ng-template #gameImageError let-control>
+        @if (control.errors?.['required']) { The Game Image is required } @if
+        (control.errors?.['invalidUrl']) { URL must start with http:// or
+        https:// }
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzFor="new-game-description">Description</nz-form-label>
+    <nz-form-control nzHasFeedback>
+      <nz-textarea-count [nzMaxCharacterCount]="1000">
+        <textarea
+          id="new-game-description"
+          nz-input
+          rows="4"
+          placeholder="Enter description"
+          formControlName="gameDescription"
+        ></textarea>
+      </nz-textarea-count>
+      @if (gameDescription.touched && gameDescription.errors?.['maxlength']) {
+      <p class="error-message">
+        Description can't exceed more than 1000 characters
+      </p>
+      }
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button
+        nz-button
+        nzType="primary"
+        [disabled]="!gameForm.valid"
+        (click)="submitForm()"
+      >
+        Submit
+      </button>
+      <button nz-button (click)="resetForm()">Reset</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
