@@ -1,0 +1,39 @@
+<div class="header">
+  <div class="main-container">
+    <nz-table
+      #basicTable
+      [nzData]="users"
+      [nzShowPagination]="basicTable.data && !isLoading"
+    >
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @if(basicTable.data && !isLoading){ @for(data of basicTable.data; track
+        data){
+        <tr>
+          <td><img style="width: 50px" [src]="data.avatar" alt="avatar" /></td>
+          <td>{{ data.first_name }}</td>
+          <td>{{ data.last_name }}</td>
+          <td>{{ data.email }}</td>
+          <td>
+            <a>Action 一 {{ data.first_name }}</a>
+          </td>
+        </tr>
+        } }
+      </tbody>
+    </nz-table>
+    @if(isLoading){
+    <div id="spinner">
+      <nz-spin [nzSize]="'large'" nzSimple></nz-spin>
+    </div>
+    }
+  </div>
+</div>

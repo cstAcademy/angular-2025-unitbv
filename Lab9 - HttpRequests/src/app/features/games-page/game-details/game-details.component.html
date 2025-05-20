@@ -1,0 +1,8 @@
+<p>Game details page</p>
+@if(gameDetails){
+<p>{{ gameDetails.title | uppercase }}</p>
+<p>
+  The reversed title is: <span>{{ gameDetails.title | reverse }}</span>
+</p>
+<p>{{ gameDetails.description }}</p>
+}

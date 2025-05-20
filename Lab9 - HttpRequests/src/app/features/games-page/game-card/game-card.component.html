@@ -1,0 +1,26 @@
+<div class="card-container">
+  <div>
+    <img [src]="game().image" alt="image" />
+    <div class="title-flex">
+      <h3>{{ gameTitle() }}</h3>
+    </div>
+
+    <button (click)="voteGame()">Vote</button>
+    <!-- ! ex query params -->
+    <!-- <a [routerLink]="'details'" [queryParams]="{ id: game().id }"
+      >See details</a
+    > -->
+    <!-- ! ex path params -->
+    <a [routerLink]="['details', game().id]">See details</a>
+    <p>{{ game().description }}</p>
+  </div>
+
+  <div>
+    <div>
+      Leave a review
+      <input [(ngModel)]="review" />
+      <button (click)="clearReview()">clear</button>
+    </div>
+    <div>{{ review() }}</div>
+  </div>
+</div>
