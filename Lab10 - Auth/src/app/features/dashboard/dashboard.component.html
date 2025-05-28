@@ -1,0 +1,17 @@
+<p>This is the dashboard</p>
+
+<button (click)="logout()">LOG OUT</button>
+<button (click)="navigateToGamePage()">Go to Games</button>
+<!-- <a [routerLink]="'/games'">Go to Games</a> -->
+<a [routerLink]="'/users'"> Go to users page</a>
+
+<div class="search-conteiner">
+  <input [(ngModel)]="searchValue" /><button (click)="searchGame()">
+    Search
+  </button>
+</div>
+<div>
+  @for(game of searchedGames; track game){
+  <app-game-card [game]="game"></app-game-card>
+  }
+</div>
